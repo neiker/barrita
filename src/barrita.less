@@ -1,0 +1,98 @@
+/* Variables */
+@rail-color: rgba(160,160,160,.2);
+@rail-color-fallback: #f5f5f5;
+@rail-color-hover: darken(@rail-color, 20%);
+@rail-color-hover-fallback: darken(@rail-color-fallback, 10%);
+@bar-color: #777;
+@bar-color-active: darken(@bar-color, 15%);
+
+@bar-width: 6px;
+@bar-width-active: @bar-width*1.5;
+@scroll-radius: @bar-width/2;
+@scroll-radius-active: @bar-width-active/2;
+/* /Variables */
+
+
+/* Mixins */
+.border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+.fallback-background(@bg, @fbg) {
+    background: @fbg;
+    background: @bg;
+}
+.transition (@transition) {
+    transition: @transition;
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    -transition: @transition;
+}
+.size (@w, @h) {
+    width: @w;
+    height: @h;
+}
+/* /Mixins */
+
+body.barritaActive {
+	cursor: default;
+}
+
+.barrita {
+	margin: 0; 
+	padding: 0;
+	overflow: hidden !important;
+	position: relative;
+
+	.barritaViewport {
+		.size(150%, 100%);
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+
+	.barritaContent {
+		/* Avoid margin collapsing */
+		overflow: auto;
+        width: 100/3*2%
+	}
+
+	.barritaRail {
+		display: none;
+		position: absolute;
+		top: 0; right: 0;
+		.size(@bar-width, 100%);
+		.fallback-background (@rail-color, @rail-color-fallback);
+		.transition(~"background .2s ease-in-out, width .2s ease-in-out");
+		.border-radius(@scroll-radius);
+
+		&.hide {
+			display: none !important;
+		}
+		
+	    &.barritaHover, &.barritaActive { 
+	    	display: block;
+	    }
+	    &:hover, &.barritaActive { 
+	    	.fallback-background (@rail-color-hover, @rail-color-hover-fallback);
+	    }
+
+	    .barritaHandler {
+	    	position: relative;
+	    	background-color: @bar-color;
+
+	    	.size(100%, 0);
+	    	.border-radius(inherit);
+	    }
+
+	    &:hover, &.barritaActive {
+	    	width: @bar-width-active;
+	    	.border-radius(@scroll-radius-active);
+	    }
+
+	    &.barritaActive .barritaHandler  { 
+	    	background: @bar-color-active;
+	    }
+	}
+}

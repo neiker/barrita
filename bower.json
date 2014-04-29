@@ -1,0 +1,24 @@
+{
+  "name": "barrita",
+  "version": "0.0.1",
+  "authors": [
+    "Javier Alejandro Alvarez <neiker@gmail.com>"
+  ],
+  "description": "Minimalist solution to replace native scrollbars.",
+  "main": "dist/barrita.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "jquery",
+    "scrollbar"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}

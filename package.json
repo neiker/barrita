@@ -1,0 +1,36 @@
+{
+  "name": "barrita",
+  "version": "0.0.1",
+  "description": "Minimalist solution to replace native scrollbars.",
+  "main": "dist/barrita.min.js",
+  "style": "dist/barrita.min.css",
+  "less": "src/barrita.less",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neiker/barrita.git"
+  },
+  "scripts": {
+    "start": "npm install && grunt build"
+  },
+  "keywords": [
+    "scrollbar",
+    "jquery"
+  ],
+  "author": "Javier Alejandro Alvarez <neiker@gmail.com>",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/neiker/barrita/blob/master/LICENSE"
+  },
+  "dependencies": {
+    "grunt": "^0.4.4",
+    "grunt-bower-task": "^0.3.4",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^0.11.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-clean": "^0.5.0"
+  },
+  "devDependencies": {
+    
+  }
+}
