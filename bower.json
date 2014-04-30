@@ -1,0 +1,20 @@
+{
+  "name": "barrita-gh-page",
+  "version": "0.0.3",
+  "homepage": "https://github.com/neiker/barrita",
+  "authors": [
+    "Javier Alejandro Alvarez <neiker@gmail.com>"
+  ],
+  "description": "https://neiker.github.io/barrita",
+  "main": "index.html",
+  "keywords": [
+    "scrollbar",
+    "jquery"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "barrita": "~0.0.3",
+    "bootstrap": "~3.1.1"
+  }
+}

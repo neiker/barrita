@@ -3,13 +3,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 
-		<title>barrita 0.0.3</title>
+		<title><%= pkgBarrita.name %> <%= pkgBarrita.version %></title>
 
-		<meta name="description" content="Minimalist solution to replace native scrollbars." />
-		<meta name="keywords" content="scrollbar, jquery" />
+		<meta name="description" content="<%= pkgBarrita.description %>" />
+		<meta name="keywords" content="<%= pkgBarrita.keywords.join(', ') %>" />
 
-		<link href='assets/barrita/barrita.min.css?v=0.0.3' rel='stylesheet' type='text/css' />
-		<link href='assets/styles.min.css?v=0.0.3' rel='stylesheet' type='text/css' />
+		<link href='assets/barrita/barrita.min.css?v=<%= pkgBarrita.version %>' rel='stylesheet' type='text/css' />
+		<link href='assets/styles.min.css?v=<%= pkg.version %>' rel='stylesheet' type='text/css' />
 
 		<style type="text/css">
 			.scrolleable {
@@ -32,7 +32,7 @@
 		<a href="//github.com/neiker/barrita"><img style="position: absolute; top: 0; right: 0; border: 0;" src="//camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="//s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
 
 		<div class="container" id="mainContainer">
-			<h1>barrita <small>0.0.3</small></h1>
+			<h1><%= pkgBarrita.name %> <small><%= pkgBarrita.version %></small></h1>
 
 			<hr/>
 
@@ -138,7 +138,7 @@
 			<script type="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.3.0/es5-shim.min.js"></script>
 		<![endif]-->
 
-		<script type="text/javascript" src="assets/barrita/barrita.min.js?v=0.0.3"></script>
+		<script type="text/javascript" src="assets/barrita/barrita.min.js?v=<%= pkgBarrita.version %>"></script>
 
 		<script type="text/javascript">
 			/* DEMO 1 */
