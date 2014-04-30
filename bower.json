@@ -1,6 +1,6 @@
 {
   "name": "barrita",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "authors": [
     "Javier Alejandro Alvarez <neiker@gmail.com>"
   ],
@@ -15,7 +15,7 @@
     "scrollbar"
   ],
   "license": "MIT",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
