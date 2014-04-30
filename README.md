@@ -3,6 +3,8 @@ Barrita
 
 This is a minimalist solution to replace native scrollbars. No more "big features" will be added, so, if this don't cover your needs, I highly recommend [perfect-scrollbar](https://github.com/noraesae/perfect-scrollbar). 
 
+[Demo](https://neiker.github.io/barrita/)
+
 Install
 -------
 
