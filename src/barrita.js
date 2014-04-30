@@ -16,8 +16,6 @@
  }(function ($) {
     'use strict';
 
-    var noTeUso = 'hola';
-
     var defaultOptions = {
         resize: 'auto',
         hoverTimeout: 500
@@ -314,7 +312,7 @@
                     }
                 } else {
                     $el.data('barrita', ( new Barrita($el, options) ));
-                    $el.on('barrita:destroy', function () {
+                    $el.once('barrita:destroy', function () {
                         $el.removeData('barrita');
                     });
                 }
