@@ -312,7 +312,7 @@
                     }
                 } else {
                     $el.data('barrita', ( new Barrita($el, options) ));
-                    $el.once('barrita:destroy', function () {
+                    $el.one('barrita:destroy', function () {
                         $el.removeData('barrita');
                     });
                 }
