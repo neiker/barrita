@@ -267,58 +267,72 @@
     };
 
     var api = {
-        resize: function (scrollBar) {
-            scrollBar.setBarHeight();
+        resize: function () {
+            this.setBarHeight();
         },
-        destroy: function (scrollBar) {
-            scrollBar.destroy();
+        destroy: function () {
+            this.destroy();
         },
-        setPosition: function (scrollBar,v1,v2) {
-            scrollBar.setContentPosition(v1);
-            scrollBar.setBarPosition();
+        setPosition: function (v1,v2) {
+            this.setContentPosition(v1);
+            this.setBarPosition();
 
             if(v2) {
-                scrollBar.hover(true);
-                scrollBar.hover(false);
+                this.hover(true);
+                this.hover(false);
             }
         },
-        setContent: function (scrollBar,v1) {
-            scrollBar.$content.html(v1);
+        setContent: function (v1) {
+            this.$content.html(v1);
         },
-        addContent: function (scrollBar,v1) {
-            scrollBar.$content.append(v1);
+        addContent: function (v1) {
+            this.$content.append(v1);
         }
     };
 
-    $.fn.extend({
-        barrita: function(options, v1, v2) {
-            var action;
-            if(options===undefined || $.type(options) === 'object') {
-                options = $.extend({}, defaultOptions, options);
+
+    function applyBarrita () {
+        var args = Array.prototype.slice.call(arguments);
+        var $el = args.shift();
+
+        if(!($el instanceof $)) {
+            throw new Error('Invalid Element');
+        }
+
+        var action, options;
+
+        if(args[0]===undefined || $.type(args[0]) === 'object') {
+            options = $.extend({}, defaultOptions, args.shift());
+        } else {
+            action = args.shift();
+        }
+
+        return $el.each(function() {
+            var $el = $(this);
+            var scrollBar = $el.data('barrita');
+
+            if(scrollBar) {
+                if($.type(action)==='string' && api[action]) {
+                    api[action].apply(scrollBar, args);
+                } else {
+                    throw new Error('Invalid action');
+                }
             } else {
-                action = options;
-                options = undefined;
+                $el.data('barrita', ( new Barrita($el, options) ));
+                $el.one('barrita:destroy', function () {
+                    $el.removeData('barrita');
+                });
             }
 
-            return $(this).each(function() {
-                var $el = $(this);
-                var scrollBar = $el.data('barrita');
+            return scrollBar;
+        });
+    }
 
-                if(scrollBar) {
-                    if($.type(action)==='string' && api[action]) {
-                        api[action](scrollBar, v1, v2);
-                    } else {
-                        throw new Error('Invalid action');
-                    }
-                } else {
-                    $el.data('barrita', ( new Barrita($el, options) ));
-                    $el.one('barrita:destroy', function () {
-                        $el.removeData('barrita');
-                    });
-                }
-
-                return scrollBar;
-            });
+    $.fn.extend({
+        barrita: function() {
+            return applyBarrita.apply(null, [$(this)].concat(Array.prototype.slice.call(arguments)));
         }
     });
+
+    return applyBarrita;
 }));

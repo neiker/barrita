@@ -20,7 +20,14 @@ How to Use it
 
 Basic usage:
 ```javascript
-$('#scrolleable').barrita();
+$('#scrolleable').barrita(options);
+```
+
+AMD Basic usage:
+```javascript
+require('barrita', function(barrita) {
+   barrita($('#scrolleable'), options);
+});
 ```
 
 Manually update scrollbar size on each load image event:
