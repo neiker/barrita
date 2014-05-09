@@ -1,6 +1,6 @@
 {
   "name": "barrita-gh-page",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "https://neiker.github.io/barrita",
   "main": "index.js",
   "scripts": {
