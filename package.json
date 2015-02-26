@@ -1,6 +1,6 @@
 {
   "name": "barrita",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Minimalist solution to replace native scrollbars.",
   "main": "dist/barrita.min.js",
   "style": "dist/barrita.min.css",

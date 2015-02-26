@@ -135,7 +135,7 @@
         setBarHeight: function () {
             var scrollBarHeight = (100 / this.$content.height() * this.$el.height());
 
-            if(!scrollBarHeight) {
+            if(!scrollBarHeight && this.$el.is(':visible')) {
                 this.destroy();
             } else if(scrollBarHeight>=100) {
                 this.$scrollRail.addClass('hide');
